@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BOJ_11437_LCA {
+public class BOJ_11437_LCA_노가다로푼것 {
 	static class Node {
 		ArrayList<Integer> vertex = new ArrayList<>();
 		int val;
@@ -58,7 +58,7 @@ public class BOJ_11437_LCA {
 				q.offer(new int[]{nowchild,nowdep+1});
 			}
 		}
-		
+
 		//이제 공통부모 찾아
 		int m=Integer.parseInt(br.readLine());
 		for(int i=0;i<m;i++) {
