@@ -61,6 +61,8 @@ public class BOJ_11437_LCA {
 		// 부모관계 설정
 		for (int j = 1; j <= 16; j++) {// 2^16>50000
 			for (int i = 0; i <= n; i++) {
+				//나의 2(2^1)번째 부모는 내 첫번재 부모의 첫(2^0)번째 부모
+				//나의 4(2^2)번째 부모는 내 두번째 부모의 두(2^1)번째 부모
 				parent[i][j] = parent[parent[i][j - 1]][j - 1];
 			}
 		}
@@ -81,6 +83,7 @@ public class BOJ_11437_LCA {
 
 			// a의 깊이를 b의 깊이와 같게 만들어
 			for (int j = 16 - 1; j >= 0; j--) {
+				//만약 깊이 차이가 3이 난다면 j가 2일때 2칸 이동 j가 1일때 1칸이동 해서 3차이 없앰 
 				if (depth[a] - depth[b] >= (1 << j)) {
 					a = parent[a][j];
 				}
@@ -92,6 +95,7 @@ public class BOJ_11437_LCA {
 			else {
 				for (int j = 16 - 1; j >= 0; j--) {
 					// 조상을 향해 거슬러 올라감
+					//멀리있는 조상부터 점점 근처로 오면서 달라지는 부분이 생기면 그 전이 공통 조상임
 					if (parent[a][j] != parent[b][j]) {
 						a = parent[a][j];
 						b = parent[b][j];
