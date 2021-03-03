@@ -27,6 +27,7 @@ public class BOJ_16236_아기상어 {
 		int nowy=0;
 		int time=0;
 		
+		//입력
 		for(int i=0;i<n;i++) {
 			str=br.readLine().split(" ");
 			for(int j=0;j<n;j++) {
@@ -57,13 +58,18 @@ public class BOJ_16236_아기상어 {
 				Arrays.fill(isvisited[i], false);
 			
 			isvisited[nowx][nowy]=true;
+			
+			//아기상어가 먹을수 있는 물고기 다먹었는지 체크하는 변수
 			end=1;
 			
+			//먹을수 있는 물고기를 BFS를 통해 찾아
+			//찾은 물고기중에 같은 거리인 물고기들 일단 저장해둬
 			while(!q.isEmpty()) {
 				int x=q.peek()[0];
 				int y=q.peek()[1];
-				int move=q.poll()[2];
+				int move=q.poll()[2];//움직인 횟수(거리)
 				
+				//현재 먹을수 있는 물고기보다 거리가 먼 물고기를 탐색하면 탈출
 				if(maxmove!=-1&& move>maxmove) {
 					break;
 				}
@@ -71,9 +77,9 @@ public class BOJ_16236_아기상어 {
 				//같은 거리의 물고기들 전부 모아둬
 				if(arr[x][y]!=0 && arr[x][y]<sharkSize) {
 					if(maxmove==-1)
-						maxmove=move;
+						maxmove=move;//처음 먹을수 있는 물고기를 만나면 거리 저장해둬
 					food.add(new int[] {x,y});
-					end=0;
+					end=0;//먹을수 있는 물고기가 하나라도 잇으면 end 0으로 만들어줘
 				}
 		
 				
@@ -101,7 +107,7 @@ public class BOJ_16236_아기상어 {
 			if(end==1)
 				break;
 			
-			//물고기 먹음
+			//물고기 먹음(가장 위에있는 물고기 (여러마리면 가장 왼쪽))
 			Collections.sort(food,(a,b)->{
 				if(a[0]==b[0])
 					return a[1]-b[1];
