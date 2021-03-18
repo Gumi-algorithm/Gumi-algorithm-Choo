@@ -39,7 +39,7 @@ public class BOJ_1197_최소스패닝트리 {
 		union_find=new int[v+1];
 		
 		//초기화
-		for(int i=0;i<v;i++) {
+		for(int i=0;i<=v;i++) {
 			union_find[i]=i;
 		}
 		
