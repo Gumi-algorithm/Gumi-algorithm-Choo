@@ -4,8 +4,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public class BOJ_17825_주사위윷놀이 {
-	
+public class BOJ_17825_주사위윷놀이 {	
 	static class Node{
 		int next;//빨간화살표
 		int next2=0;//파란화살표
