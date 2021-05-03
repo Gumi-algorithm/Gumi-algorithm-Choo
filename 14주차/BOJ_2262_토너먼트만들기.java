@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 
 //허프만코드와 유사함
+//참고: https://playground10.tistory.com/98
 public class BOJ_2262_토너먼트만들기 {
 	
 	static class Node{
