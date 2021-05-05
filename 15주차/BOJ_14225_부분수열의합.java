@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class BOJ_14225_부분수열의합 {
-	
 	static int n;
 	static int[] arr;
 	static boolean[] isselected=new boolean[2100000];
